@@ -1,0 +1,5 @@
+package com.girish.Phonebook.Service;
+
+public interface PhonebookServiceI {
+
+}

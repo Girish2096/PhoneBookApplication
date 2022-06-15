@@ -1,0 +1,5 @@
+package com.girish.Phonebook.Repository;
+
+public interface PhonebookRepository {
+
+}

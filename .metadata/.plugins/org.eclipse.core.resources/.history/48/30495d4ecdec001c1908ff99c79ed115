@@ -1,0 +1,12 @@
+package com.girish.Phonebook.Repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.girish.Phonebook.Model.ContactBook;
+
+public interface PhonebookRepository extends JpaRepository<ContactBook, Serializable> {
+
+	
+}
