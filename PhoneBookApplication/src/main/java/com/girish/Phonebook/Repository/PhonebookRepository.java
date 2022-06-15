@@ -10,5 +10,7 @@ import com.girish.Phonebook.Model.ContactBook;
 @Repository
 public interface PhonebookRepository extends JpaRepository<ContactBook, Serializable> {
 
+	Boolean findbyNumber(Integer contactNumber);
+
 	
 }
