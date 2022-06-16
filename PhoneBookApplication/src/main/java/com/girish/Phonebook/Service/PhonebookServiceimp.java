@@ -26,17 +26,15 @@ public class PhonebookServiceimp implements PhonebookServiceI {
 				
 	}
 
-	@Override
-	public Boolean getnumber(Integer contactNumber) {
-		
-		Boolean findbyNumber = phonebookRepository.findbyNumber(contactNumber);
-		if(findbyNumber!=null)
-		{
-			return true;
-		}
-		return false;
-	}
+	/*
+	 * @Override public Boolean getnumber(long contactNumber) {
+	 * 
+	 * Boolean findbyNumber = phonebookRepository.findByNumber(contactNumber);
+	 * if(findbyNumber!=null) { return true; } return false; }
+	 */
 
+	
+	
 	public List<ContactBook> getall() {
 		
 		List<ContactBook> list = phonebookRepository.findAll();

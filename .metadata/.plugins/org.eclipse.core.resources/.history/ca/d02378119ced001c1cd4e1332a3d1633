@@ -1,0 +1,10 @@
+package com.girish.Phonebook.Exception;
+
+public class NotDatafoundException extends RuntimeException {
+	
+	NotDatafoundException(String s)
+	{
+		super(s);
+	}
+
+}

@@ -23,7 +23,7 @@ public class ContactBook {
 	@Column(name="Contact_NAME")
 	private String contactName;
 	@Column(name="Contact_NUMBER")
-	private String contactNumber;
+	private long contactNumber;
 	@Column(name="Contact_EMAIL")
 	private String contactEmail;
 	@Column(name="ACTIVE_SW")

@@ -1,5 +1,7 @@
 package com.girish.Phonebook.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.girish.Phonebook.Exception.NotDatafoundException;
 import com.girish.Phonebook.Model.ContactBook;
 import com.girish.Phonebook.Service.PhonebookServiceI;
 
@@ -35,32 +38,36 @@ public class phonecontroller {
 		
 	}
 	
-	@GetMapping(value ="/number/{contactNumber}",produces = "application/json")
-	public ResponseEntity<String> getNumber(@PathVariable Integer contactNumber)
+	/*
+	 * @GetMapping(value ="/number/{contactNumber}",produces = "application/json")
+	 * public ResponseEntity<String> getNumber(@PathVariable long contactNumber) {
+	 * Boolean getnumber = phonebookServiceI.getnumber(contactNumber); if(getnumber)
+	 * { String msg="number is found "; return new
+	 * ResponseEntity<>(msg,HttpStatus.OK); } String
+	 * msg1="number is not found  in db";
+	 * 
+	 * return new ResponseEntity<>(msg1,HttpStatus.BAD_REQUEST);
+	 * 
+	 * }
+	 */
+	
+	
+	@GetMapping(value="/getallcontacts",produces="application/json")
+	public ResponseEntity<List<ContactBook>> getallcontacts()
 	{
-		Boolean getnumber = phonebookServiceI.getnumber(contactNumber);
-		if(getnumber)
+		 List<ContactBook> contacts = phonebookServiceI.getall();
+		if(contacts==null)
 		{
-		String msg="number is found ";
-		return new ResponseEntity<>(msg,HttpStatus.OK);
+			return new ResponseEntity<List<ContactBook>>(contacts, HttpStatus.OK);
 		}
-		String msg1="number is not found  in db";
-		
-		return  new ResponseEntity<>(msg1,HttpStatus.BAD_REQUEST); 
-	
-	}
-	
-	
-	
-	public ResponseEntity<ContactBook> getallcontacts()
-	{
-		return null;
-		
-		
-		
+		else
+		{
+		  throw new  NotDatafoundException("contacts not found");
+		}
+			
 		
 	}
-	
+
 	
 	
 	
