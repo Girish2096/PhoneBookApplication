@@ -1,5 +1,7 @@
 package com.girish.Phonebook.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,13 @@ public class PhonebookServiceimp implements PhonebookServiceI {
 			return true;
 		}
 		return false;
+	}
+
+	public List<ContactBook> getall() {
+		
+		List<ContactBook> list = phonebookRepository.findAll();
+
+		return list ;
 	}
 
 }
