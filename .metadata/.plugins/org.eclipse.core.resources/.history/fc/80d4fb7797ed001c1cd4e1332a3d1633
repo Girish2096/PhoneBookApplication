@@ -47,36 +47,10 @@ public class phonecontroller {
 		String msg1="number is not found  in db";
 		
 		return  new ResponseEntity<>(msg1,HttpStatus.BAD_REQUEST); 
-	
-	}
-	
-	
-	
-	public ResponseEntity<ContactBook> getallcontacts()
-	{
-		return null;
 		
-		
-		
+
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
