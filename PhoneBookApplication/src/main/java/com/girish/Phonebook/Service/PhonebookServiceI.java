@@ -12,9 +12,9 @@ public interface PhonebookServiceI {
 	
 	public List<ContactBook> getall();
 
-	public ContactBook getbyid(Integer contactID);
+	public ContactBook getbyid(Integer contactId);
 
-
+    public ContactBook updateid(Integer contactId);
 	
 	
 

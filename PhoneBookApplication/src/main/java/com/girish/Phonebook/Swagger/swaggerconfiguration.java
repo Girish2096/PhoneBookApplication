@@ -17,7 +17,7 @@ public class swaggerconfiguration {
 	    public Docket api() { 
 	        return new Docket(DocumentationType.SWAGGER_2)  
 	          .select()                                  
-	          .apis(RequestHandlerSelectors.basePackage("com.girish.Phonebook.Controller"))              
+	          .apis(RequestHandlerSelectors.basePackage("com.girish.Phonebook"))              
 	          .paths(PathSelectors.any())                          
 	          .build();                                           
 	    }

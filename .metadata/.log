@@ -1395,3 +1395,30 @@ java.util.concurrent.TimeoutException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:33:32.582
 !MESSAGE executing callback sts4.classpath.PLTNaSSI SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:38:05.479
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:38:05.487
+!MESSAGE classpath=111 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:38:05.493
+!MESSAGE buffering callback sts4.classpath.PLTNaSSI PhoneBookApplication false 111
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:38:05.494
+!MESSAGE executing callback sts4.classpath.PLTNaSSI 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:38:05.525
+!MESSAGE executing callback sts4.classpath.PLTNaSSI SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:42:52.278
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PLTNaSSI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:42:52.279
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.PLTNaSSI
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:42:52.279
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-06-17 22:42:52.280
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PLTNaSSI => OK
