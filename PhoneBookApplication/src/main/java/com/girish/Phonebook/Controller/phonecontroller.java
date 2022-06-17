@@ -69,8 +69,18 @@ public class phonecontroller {
 	}
 
 	
-	
-	
+	@GetMapping("/getid/{contactId}")
+	public ResponseEntity<ContactBook> getcontactid(@PathVariable Integer contactId)
+	{
+		ContactBook getbyid = phonebookServiceI.getbyid(contactId);
+		if(getbyid!=null)
+		{
+			return new ResponseEntity<ContactBook>(getbyid, HttpStatus.OK);
+		}
+			String msg="not found id";
+		return new ResponseEntity(msg,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 	
 	
