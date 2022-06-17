@@ -56,7 +56,7 @@ public class phonecontroller {
 	public ResponseEntity<List<ContactBook>> getallcontacts()
 	{
 		 List<ContactBook> contacts = phonebookServiceI.getall();
-		if(contacts==null)
+		if(contacts!=null)
 		{
 			return new ResponseEntity<List<ContactBook>>(contacts, HttpStatus.OK);
 		}
