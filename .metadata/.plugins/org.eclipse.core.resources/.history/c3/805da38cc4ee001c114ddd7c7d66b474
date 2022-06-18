@@ -55,22 +55,10 @@ public class PhonebookServiceimp implements PhonebookServiceI {
 	}
 
 	@Override
-	public Boolean update(ContactBook contact) {
-		ContactBook save = phonebookRepository.save(contact);
-		if(save!=null)
-		{
-			return true;
-		}
-		else
-		{
-			return null;
-		}
+	public ContactBook updateid(Integer contactId) {
 		
-	
+		
+		return null;
 	}
-
-	
-
-
 
 }

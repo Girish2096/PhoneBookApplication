@@ -14,7 +14,7 @@ public interface PhonebookServiceI {
 
 	public ContactBook getbyid(Integer contactId);
 
-	public Boolean update(ContactBook contact);
+    public ContactBook updateid(Integer contactId);
 	
 	
 
