@@ -2,6 +2,8 @@ package com.girish.Phonebook.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +41,10 @@ public class PhonebookServiceimp implements PhonebookServiceI {
 	public List<ContactBook> getall() {
 		
 		List<ContactBook> list = phonebookRepository.findAll();
+		
+		 List<ContactBook> collect = list.stream().filter(contact->contact.getActiveSwitch()=='y').collect(Collectors.toList());
 
-		return list ;
+		return collect ;
 	}
 
 	public ContactBook getbyid(Integer contactID) {
@@ -72,14 +76,34 @@ public class PhonebookServiceimp implements PhonebookServiceI {
 
 	public Boolean deletebyid(Integer contactId) {
 		
+		/*
+		 * Optional<ContactBook> findById = phonebookRepository.findById(contactId);
+		 * if(findById.isPresent()) { phonebookRepository.deleteById(contactId); return
+		 * true; }
+		 * 
+		 * return false;
+		 */
+		
+		
 		Optional<ContactBook> findById = phonebookRepository.findById(contactId);
 		if(findById.isPresent())
 		{
-			phonebookRepository.deleteById(contactId);
+			
+			ContactBook contactBook = findById.get();
+			contactBook.setActiveSwitch('N');
+			ContactBook save = phonebookRepository.save(contactBook);
+			
 			return true;
+			
+			
+		}
+		else
+		{
+			return false;
 		}
 		
-		return false;
+		
+		
 	}
 
 	
