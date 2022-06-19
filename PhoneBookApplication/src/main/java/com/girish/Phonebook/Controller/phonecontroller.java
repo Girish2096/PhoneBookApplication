@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +23,7 @@ public class phonecontroller {
 	@Autowired
 	private PhonebookServiceI phonebookServiceI;
 	
-	@PostMapping(value="/contact",consumes="application/json")
+	@PostMapping("/contact")
 	public ResponseEntity<String> save(@RequestBody ContactBook cb)
 	{
 		
@@ -31,9 +33,11 @@ public class phonecontroller {
 		String msg="save to db successfull";
 		return new ResponseEntity<>(msg,HttpStatus.OK);
 		}
+		else
+		{
 		String msg1="not save to db ";
-		
 		return  new ResponseEntity<>(msg1,HttpStatus.BAD_REQUEST); 
+		}
 		
 		
 	}
@@ -83,11 +87,41 @@ public class phonecontroller {
 	}
 	
 	
+	@PutMapping("/updatecontact")
+	public ResponseEntity<String> updatecontact(ContactBook contact)
+	{
+		Boolean update = phonebookServiceI.update(contact);
+		if(update==true)
+		{
+			String msg="contact is successfully updated";
+			return new ResponseEntity<String>(msg,HttpStatus.OK);
+		}
+		else
+		{
+			String msg="contact not updated";
+		return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST);
+		}	
+	}
 	
 	
-	
-	
-	
+	@DeleteMapping("/deletebyid/{contactId}")
+	public ResponseEntity<String> deletecontact(@PathVariable Integer contactId)
+	{
+	    Boolean deletebyid = phonebookServiceI.deletebyid(contactId);
+	    if(deletebyid)
+	    {
+	    	String msg="delete successfully";
+	    	
+	    	return new ResponseEntity<String>(msg, HttpStatus.OK); 
+	    }
+	    else
+	    {
+            String msg="not delete successfully";
+	    		return new ResponseEntity<String>(msg, HttpStatus.BAD_REQUEST); 
+	    }
+		
+		
+	}
 	
 	
 	

@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.Data;
 
 @Data
@@ -29,10 +31,10 @@ public class ContactBook {
 	@Column(name="ACTIVE_SW")
 	private Character activeSwitch;
 	@CreationTimestamp
-	@Column(name="CREATE_DATE")
+	@Column(name="CREATE_DATE",insertable = false)
 	private LocalDate createdDate;
-	@CreationTimestamp
-	@Column(name="UPDATE_DATE")
+	@UpdateTimestamp
+	@Column(name="UPDATE_DATE",insertable = false)
 	private LocalDate  updateDate;
 
 }

@@ -16,6 +16,9 @@ public interface PhonebookServiceI {
 
 	public Boolean update(ContactBook contact);
 	
+	public Boolean deletebyid(Integer contactId);
+
+
 	
 
 }
